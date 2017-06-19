@@ -1,8 +1,9 @@
-# Заполнить массив числами фибоначчи до 100
-
+# переделал, использовал loop
 number_fib = [0, 1]	 
 
-while (new_index = number_fib[-2] + number_fib[-1]) < 100 do	  
+loop do 
+  new_index = number_fib[-1] + number_fib[-2]
+  break if new_index >= 100	  
   number_fib << new_index	
 end
 	

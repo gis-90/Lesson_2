@@ -2,4 +2,5 @@ month_hash = {'January' => 31, 'February' => 28, 'March' => 31, 'April' => 30, '
 
 puts "Месяцы, в которых количество дней равно 30:"
 
-month_hash.each { |month, days| puts "#{month}" if days == 30 }
+month_hash.each_pair { |month, days| puts "#{month} = #{days}" if days == 30 } 
+# не особо вижу разницу в изменениях, по сути делают все тоже самое.

@@ -1,24 +1,28 @@
-puts "День:"
-day = gets.chomp.to_i
-puts "Месяц:"
-month = gets.chomp.to_i
-puts "Год:"
-year = gets.chomp.to_i
+# При дате 04.01.2002 выдовало ошибку, много чего поменял.
+puts "Введите день:"
+day = gets.to_i
+puts "Введите месяц:"
+month = gets.to_i
+puts "Введите год:"
+year = gets.to_i
 
 puts "Формат даты: #{day}/#{month}/#{year}"
-
-february = year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? 29 : 28
-months = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-day_of_year = 0
-index = 1
-
-loop do 
-  day_of_year += months[index]
-  index += 1
-  break if index == month
+ 
+months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+months [1] = 29 if year%4 == 0 && year%100 != 0 || year%400 == 0
+ 
+days = 0
+ 
+if month == 1
+  days = day
+else
+  n = 0
+ while n < (month-1) do
+   days += months [n]
+   n += 1
+ end
+ days += day
 end
-
-day_of_year += day
-
-puts "Порядковый номер даты: #{day_of_year} "
+ 
+ 
+puts "Порядковый номер даты: #{days} "
